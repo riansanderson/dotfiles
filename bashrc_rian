@@ -1,0 +1,30 @@
+
+export EDITOR='xemacs -nw'
+
+export PATH=$PATH:~/project/scripts:
+export PATH=$PATH:/opt/bin
+export PATH=$PATH:~/bin
+
+
+#
+# Show git branch and dirty state on the command prompt
+##
+export GIT_PS1_SHOWDIRTYSTATE=yes
+#if [ "$color_prompt" = yes ]; then
+    export PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w$(__git_ps1 "\[\033[0;32m\] (%s)")\[\033[00m\]\n\$ '
+#else
+#    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(__git_ps1 " (%s)")\$ '
+#fi
+
+#
+# syntax highlight through less if source-highlight is installed
+##
+if [ -e "/usr/share/source-highlight/src-hilite-lesspipe.sh" ]; then
+  export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+  export LESS=' -R '
+fi
+
+# infinite bash_history thank you http://stackoverflow.com/questions/338285/prevent-duplicates-from-being-saved-in-bash-history#answer-7449399
+export HISTCONTROL=ignoreboth:erasedups   # no duplicate entries
+shopt -s histappend                       # append history file
+export PROMPT_COMMAND="history -a"        # update histfile after every command

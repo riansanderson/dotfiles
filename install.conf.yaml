@@ -3,6 +3,7 @@
 - link:
     ~/.profile: profile
     ~/.bashrc: bashrc
+    ~/.bashrc_rian: bashrc_rian
     ~/.bash_logout: bash_logout
     ~/.gitconfig: gitconfig
     ~/.xemacs: xemacs
